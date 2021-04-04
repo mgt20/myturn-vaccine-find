@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  myturn-vaccine-find:
+    build: .
+    environment:
+      - TZ=America/Los_Angeles
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

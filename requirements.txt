@@ -1,0 +1,4 @@
+requests==2.25.1
+selenium==3.141.0
+chromedriver-py==88.0.4324.96
+configparser==5.0.2
