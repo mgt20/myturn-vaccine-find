@@ -1,2 +1,7 @@
 config.ini
 appointments.png
+*.log
+*.png
+*.gif
+*.jpg
+*.jpeg

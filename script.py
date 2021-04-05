@@ -18,6 +18,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import SessionNotCreatedException
 
 print("Program succesfully started!")
 
@@ -56,43 +57,36 @@ def main():
     #Load the URL and wait for it to load
     try:
         chromedriver.get(url)
+    except SessionNotCreatedException:
+        print("A SessionNotCreatedException occurred")
+        sys.exit(1)
     except:
-        print("An exception occurred")
+        print("An unknown exception occurred")
+        sys.exit(2)
     else:
         time.sleep(5)
         #Click 'Register and check my eligibility'
-        proceed_page1 = chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div[1]/div/div[2]/div[3]/button')
-        proceed_page1.click()
+        chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div[1]/div/div[2]/div[3]/button').click()
         #Certify 18+ age
-        age = chromedriver.find_element_by_xpath('//*[@id="q-screening-18-yr-of-age"]')
-        age.click()
+        chromedriver.find_element_by_xpath('//*[@id="q-screening-18-yr-of-age"]').click()
         #Certify information is true and accurate
-        certify = chromedriver.find_element_by_xpath('//*[@id="q-screening-health-data"]')
-        certify.click()
+        chromedriver.find_element_by_xpath('//*[@id="q-screening-health-data"]').click()
         #Attest to accuracy of information
-        attest = chromedriver.find_element_by_xpath('//*[@id="q-screening-accuracy-attestation"]')
-        attest.click()
+        chromedriver.find_element_by_xpath('//*[@id="q-screening-accuracy-attestation"]').click()
         #Accept Privacy Statement
-        privacy = chromedriver.find_element_by_xpath('//*[@id="q-screening-privacy-statement"]')
-        privacy.click()
+        chromedriver.find_element_by_xpath('//*[@id="q-screening-privacy-statement"]').click()
         #Select age range from given options
-        select_age = chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[5]/div/fieldset/div[2]/label[1]')
-        select_age.click()
+        chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[5]/div/fieldset/div[2]/label[1]').click()
         #Select health conditions
-        select_conditions = chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[6]/div/fieldset/div[3]/label[1]')
-        select_conditions.click()
+        chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[6]/div/fieldset/div[3]/label[1]').click()
         #Select disability
-        select_disability = chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[7]/div/fieldset/div[2]/label[2]')
-        select_disability.click()
+        chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[7]/div/fieldset/div[2]/label[2]').click()
         #Select industry
-        select_industry = chromedriver.find_element_by_xpath('//*[@id="q-screening-eligibility-industry"]/option[3]')
-        select_industry.click()
+        chromedriver.find_element_by_xpath('//*[@id="q-screening-eligibility-industry"]/option[3]').click()
         #Select county
-        select_county = chromedriver.find_element_by_xpath('//*[@id="q-screening-eligibility-county"]/option[47]')
-        select_county.click()
+        chromedriver.find_element_by_xpath('//*[@id="q-screening-eligibility-county"]/option[47]').click()
         #Proceed to next page
-        proceed_page2 = chromedriver.find_element_by_xpath('/html/body/div[1]/div/main/div/form/div/button[1]')
-        proceed_page2.click()
+        chromedriver.find_element_by_xpath('/html/body/div[1]/div/main/div/form/div/button[1]').click()
         time.sleep(3)
         #Enter location
         enter_zip = chromedriver.find_element_by_xpath('//*[@id="location-search-input"]')
