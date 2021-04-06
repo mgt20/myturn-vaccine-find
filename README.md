@@ -26,4 +26,4 @@ This is a python3 script that can be run inside or outside of Docker on a cron s
 2. Run: 'docker-compose up --build" while in the working directory that houses the files downloaded from github to run the container. Optional: To run in "detached" mode instead (no print to console with process dependent on terminal window), instead run with -d flag added, such as: 'docker-compose up --build -d'
 
 NOTES:
-1. The current schedule runs the script hourly at the 1st minute of every hour (ex. 6:01pm, 7:01pm, etc).
+1. The current schedule runs the script hourly at the 1st minute of every hour (ex. 6:01pm, 7:01pm, etc). If you modify the cronjobs file, make sure to leave a blank line at the end of the file.
