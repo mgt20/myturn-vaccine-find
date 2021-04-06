@@ -12,13 +12,14 @@ This is a python3 script that can be run inside or outside of Docker on a cron s
 1. Rename config.sample.ini to config.ini
 2. Modify Dockerfile with your timezone (make sure to use a supported Timezone syntax/variable).
 3. Modify cronjobs file with your desired cron schedule. See crontab.guru for help with this.
-4. Modify the config.ini file with your values for: pushover.net user and token. 
-5. Modify config.ini file with your values for which location to search for on myturn.ca.gov. Use the location values from the last page of the tool exactly in this field.
-6. IMPORTANT: The checkboxes/fields/questions are filled out automatically per my requirements. You can update these by Inspecting the webpage and copying the more relevant xpath or css selector for your answers and pasting them into the correct step in script.py. There are plans to make this customizable more easily in the script. For now, using the "Inspect" tool in your web browser and finding the correct identifier for the button/checkbox is required.
+4. Modify config.ini file, section "myturn.ca.gov", with the xpath values for the age range, health conditions, disabilities, work industry, and county that apply to you. You can use the Chrome Browser's "Inspect" function to find the xpath for the option that applies to you while stepping through myturn.ca.gov.
+5. Modify the config.ini file, section "myturn.ca.gov Locations", with your Location as entered on the "Enter your address or zip code" field of myturn.ca.gov. Important: Enter this exactly as entered on the website. If you'd like to search for more locations, add a row for additional locations with a unique name like "MyLocation3" or MyLocation4".
+6. Modify the config.ini file, section "pushover.net", with your pushover user and token keys.
 
 ## To run on baremetal / without Docker
 1. Install the required dependencies on your machine (see Dockerfile for OS packages needed and see requirements.txt for required pip packages).
-2. Run the script by running: 'python3 script.py' while in the folder of the downloaded repository on your machine.
+2. In script.py, you will need to update the path for config.ini from '/app/config.ini' to 'config.ini'
+3. Run the script by running: 'python3 script.py' while in the folder of the downloaded repository on your machine. You can comment out the headless option for Selenium if you'd like to see the script open and navigate a webpage.
 
 ## To run on Docker
 1. Have Docker and docker-compose installed and configured for use.
