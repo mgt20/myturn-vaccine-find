@@ -1,8 +1,8 @@
 FROM python:3.9.3-slim-buster
 
 RUN apt-get update && apt-get install -yq \
-    chromium=88.0.4324.182-1~deb10u1 \  
-    chromium-driver=88.0.4324.182-1~deb10u1 \
+    chromium=89.0.4389.114-1~deb10u1 \  
+    chromium-driver=89.0.4389.114-1~deb10u1 \
     python3-selenium=3.14.1+dfsg1-1 \
     cron=3.0pl1-134+deb10u1
 
