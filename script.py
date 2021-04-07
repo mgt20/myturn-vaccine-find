@@ -3,7 +3,6 @@
 #TODO add the ability to use other notification methods
 #TODO test/document running Docker image on Crostini
 #TODO test on slimmer Docker image such as Alpine
-#TODO test on ARM CPU machines such as Raspberry Pi
 #TODO split out Dockerfile skeleton to its own github repo for cron jobs on Docker 
 
 import sys

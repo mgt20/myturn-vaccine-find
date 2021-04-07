@@ -1,6 +1,8 @@
 # myturn-vaccine-find
 
-This is a python3 script that can be run inside or outside of Docker on a cron schedule to scrape the myturn.ca.gov website for COVID-19 vaccination locations with potentially available appointment times. Notifications for potential sites with appointments will appear on the printed output in the command line terminal. There is also support for pushover.net's API for push notifications. NOTE: Pushover is a ~$5 purchase to unlock, but there may be a trial available.
+This is a python3 script that can be run inside or outside of Docker on a cron schedule to scrape the myturn.ca.gov website for COVID-19 vaccination locations with potentially available appointment times. Notifications for potential sites with appointments will appear on the printed output in the command line terminal. There is also support for pushover.net's API for push notifications. NOTE: Pushover is a ~$5 purchase to unlock, but there may be a trial available. There are plans to support other notification methods in the future.
+
+This has been tested on x86 CPUs and ARM (e.g. Raspberry Pi) CPUs.
 
 ## Required services
 1. Pushover (this should be a one-time fee in the mobile phone app stores). Currently, appointment site matches are printed to the console. Pushover is used to send push notifications of these matches to a mobile device. Once purchased, export a user key and a token for use in the config.ini file within this repository.
