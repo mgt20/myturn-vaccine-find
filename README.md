@@ -24,7 +24,7 @@ This has been tested on x86 CPUs and ARM (e.g. Raspberry Pi) CPUs and should run
 3. In script.py, you will need to update the path for config.ini from '/app/config.ini' to 'config.ini'
 4. Run the script by running: 'python3 script.py' while in the folder of the downloaded repository on your machine. You can comment out the headless option for Selenium if you'd like to see the script open and navigate a webpage.
 
-## To run on Docker
+## To run on Docker (RECOMMENDED)
 1. Have Docker and docker-compose installed and configured for use.
 2. Run: 'docker-compose up --build" while in the working directory that houses the files downloaded from github to run the container. Optional: To run in "detached" mode instead (no print to console with process dependent on terminal window), instead run with -d flag added, such as: 'docker-compose up --build -d'
 
