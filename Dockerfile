@@ -23,7 +23,7 @@ COPY cronjobs /etc/cron.d/cronjobs
 COPY config.ini config.ini
 
 # Install pip requirements into container
-RUN pip3 install -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Set permissions for the cronjobs file
 RUN chmod 644 /etc/cron.d/cronjobs
