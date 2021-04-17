@@ -28,11 +28,12 @@ url = ('https://myturn.ca.gov')
 
 #ConfigParser myturn.ca.gov variables import
 location_items = config.items("myturn.ca.gov Locations")
+privacy_accept = config.get('myturn.ca.gov', 'PrivacyAccept')
 my_age = config.get('myturn.ca.gov', 'MyAge')
-my_conditions = config.get('myturn.ca.gov', 'MyConditions')
-my_disability = config.get('myturn.ca.gov', 'MyDisability')
-my_industry = config.get('myturn.ca.gov', 'MyIndustry')
 my_county = config.get('myturn.ca.gov', 'MyCounty')
+work_in_diff_county = config.get('myturn.ca.gov', 'WorkInDiffCounty')
+certify_my_age = config.get('myturn.ca.gov', 'CertifyMyAge')
+certify_info = config.get('myturn.ca.gov', 'CertifyInfo')
 
 #Config Parser Pushover Credentials Import
 pushover_user = config.get('pushover.net', 'PushoverUser')
@@ -66,17 +67,17 @@ def main():
             #Click 'Register and check my eligibility' then proceed to next page
             chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div[1]/div/div[2]/div[3]/button').click()
             #Accept Privacy Statement
-            chromedriver.find_element_by_xpath('/html/body/div[1]/div/main/div/form/span[1]/div/label/input').click()
+            chromedriver.find_element_by_css_selector(privacy_accept).click()
             #18+ age
-            chromedriver.find_element_by_css_selector('#q-screening-eligibility-age-range-18\ and\ older').click()
+            chromedriver.find_element_by_css_selector(my_age).click()
             #Select county
-            chromedriver.find_element_by_xpath(my_county).click()
+            chromedriver.find_element_by_css_selector(my_county).click()
             #Live and work in same county 
-            chromedriver.find_element_by_css_selector('#q-screening-different-county-No').click() 
+            chromedriver.find_element_by_css_selector(work_in_diff_county).click() 
             #Certify 18+ age
-            chromedriver.find_element_by_css_selector('#q-screening-18-yr-of-age').click()
+            chromedriver.find_element_by_css_selector(certify_my_age).click()
             #Certify information is true and accurate
-            chromedriver.find_element_by_xpath('//*[@id="q-screening-health-data"]').click()
+            chromedriver.find_element_by_css_selector(certify_info).click()
             #Proceed to next page
             chromedriver.find_element_by_xpath('/html/body/div[1]/div/main/div/form/div/button[1]').click()
             time.sleep(3)
