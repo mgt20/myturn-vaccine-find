@@ -20,8 +20,9 @@ This has been tested on x86 CPUs and ARM (e.g. Raspberry Pi) CPUs.
 
 ## To run on baremetal / without Docker
 1. Install the required dependencies on your machine (see Dockerfile for OS packages needed and see requirements.txt for required pip packages).
-2. In script.py, you will need to update the path for config.ini from '/app/config.ini' to 'config.ini'
-3. Run the script by running: 'python3 script.py' while in the folder of the downloaded repository on your machine. You can comment out the headless option for Selenium if you'd like to see the script open and navigate a webpage.
+2. Update the path for chromedriver in script.py based on where it is on your machine (for Linux systems, you can run 'whereis chromedriver' to find this out). 
+3. In script.py, you will need to update the path for config.ini from '/app/config.ini' to 'config.ini'
+4. Run the script by running: 'python3 script.py' while in the folder of the downloaded repository on your machine. You can comment out the headless option for Selenium if you'd like to see the script open and navigate a webpage.
 
 ## To run on Docker
 1. Have Docker and docker-compose installed and configured for use.

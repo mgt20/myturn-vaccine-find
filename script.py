@@ -22,6 +22,7 @@ print("Program succesfully started!")
 #ConfigParser configuration
 config = configparser.ConfigParser()
 config.read('/app/config.ini')
+#config.read('config.ini')
 
 url = ('https://myturn.ca.gov')
 
@@ -62,31 +63,20 @@ def main():
             sys.exit(1)
         else:
             time.sleep(5)
-            #Click 'Register and check my eligibility'
+            #Click 'Register and check my eligibility' then proceed to next page
             chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div[1]/div/div[2]/div[3]/button').click()
+            #Accept Privacy Statement
+            chromedriver.find_element_by_xpath('/html/body/div[1]/div/main/div/form/span[1]/div/label/input').click()
+            #18+ age
+            chromedriver.find_element_by_css_selector('#q-screening-eligibility-age-range-18\ and\ older').click()
+            #Select county
+            chromedriver.find_element_by_xpath(my_county).click()
+            #Live and work in same county 
+            chromedriver.find_element_by_css_selector('#q-screening-different-county-No').click() 
             #Certify 18+ age
-            chromedriver.find_element_by_xpath('//*[@id="q-screening-18-yr-of-age"]').click()
+            chromedriver.find_element_by_css_selector('#q-screening-18-yr-of-age').click()
             #Certify information is true and accurate
             chromedriver.find_element_by_xpath('//*[@id="q-screening-health-data"]').click()
-            #Attest to accuracy of information
-            chromedriver.find_element_by_xpath('//*[@id="q-screening-accuracy-attestation"]').click()
-            #Accept Privacy Statement
-            chromedriver.find_element_by_xpath('//*[@id="q-screening-privacy-statement"]').click()
-            #Select age range from given options
-            #chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[5]/div/fieldset/div[2]/label[1]').click()
-            chromedriver.find_element_by_xpath(my_age).click()
-            #Select health conditions
-            #chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[6]/div/fieldset/div[3]/label[1]').click()
-            chromedriver.find_element_by_xpath(my_conditions).click()
-            #Select disability
-            #chromedriver.find_element_by_xpath('//*[@id="root"]/div/main/div/form/span[7]/div/fieldset/div[2]/label[2]').click()
-            chromedriver.find_element_by_xpath(my_disability).click()
-            #Select industry
-            #chromedriver.find_element_by_xpath('//*[@id="q-screening-eligibility-industry"]/option[3]').click()
-            chromedriver.find_element_by_xpath(my_industry).click()
-            #Select county
-            #chromedriver.find_element_by_xpath('//*[@id="q-screening-eligibility-county"]/option[47]').click()
-            chromedriver.find_element_by_xpath(my_county).click()
             #Proceed to next page
             chromedriver.find_element_by_xpath('/html/body/div[1]/div/main/div/form/div/button[1]').click()
             time.sleep(3)
