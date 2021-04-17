@@ -2,7 +2,7 @@
 
 This is a python3 script that can be run inside or outside of Docker on a cron schedule to scrape the myturn.ca.gov website for COVID-19 vaccination locations with potentially available appointment times. Notifications for potential sites with appointments will appear on the printed output in the command line terminal. There is also support for pushover.net's API for push notifications. NOTE: Pushover is a ~$5 purchase to unlock, but there may be a trial available. There are plans to support other notification methods in the future.
 
-This has been tested on x86 CPUs and ARM (e.g. Raspberry Pi) CPUs.
+This has been tested on x86 CPUs and ARM (e.g. Raspberry Pi) CPUs and should run on both.
 
 ## Required services
 1. Pushover (this should be a one-time fee in the mobile phone app stores). Currently, appointment site matches are printed to the console. Pushover is used to send push notifications of these matches to a mobile device. Once purchased, export a user key and a token for use in the config.ini file within this repository.
@@ -14,7 +14,7 @@ This has been tested on x86 CPUs and ARM (e.g. Raspberry Pi) CPUs.
 1. Rename config.sample.ini to config.ini
 2. Modify Dockerfile with your timezone (make sure to use a supported Timezone syntax/variable).
 3. Modify cronjobs file with your desired cron schedule. See crontab.guru for help with this.
-4. Modify config.ini file, section "myturn.ca.gov", with the xpath values for the age range, health conditions, disabilities, work industry, and county that apply to you. You can use the Chrome Browser's "Inspect" function to find the xpath for the option that applies to you while stepping through myturn.ca.gov.
+4. Modify config.ini file, section "myturn.ca.gov", with the css selector values for the privacy agreement, age range, county, work in county you live in, certify age, and certify your information fields that apply to you. You can use the Chrome Browser's "Inspect" function to find the css selector for the option that applies to you while stepping through myturn.ca.gov.
 5. Modify the config.ini file, section "myturn.ca.gov Locations", with your Location as entered on the "Enter your address or zip code" field of myturn.ca.gov. Important: Enter this exactly as entered on the website. If you'd like to search for more locations, add a row for additional locations with a unique name like "MyLocation3" or MyLocation4".
 6. Modify the config.ini file, section "pushover.net", with your pushover user and token keys.
 
